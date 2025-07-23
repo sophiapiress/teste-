@@ -1,0 +1,226 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Orbitron', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+/* Tema Claro (padrão) */
+body {
+  background-color: #f7f7f7;
+  color: #111;
+}
+
+header {
+  background-color: #ffffff;
+  color: #ff6600;
+  padding: 60px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid #ff660022;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #555;
+  font-size: 18px;
+}
+
+form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+form input {
+  padding: 10px 14px;
+  font-size: 16px;
+  width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form button {
+  padding: 10px 18px;
+  font-size: 16px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+main {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.indice {
+  text-align: center;
+}
+
+.indice h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.indice p {
+  margin-bottom: 40px;
+  color: #444;
+}
+
+/* Grade de Tópicos */
+.topicos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.topico {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background-color: rgba(255, 153, 47, 0.05);
+  border: 1px solid #ff992f33;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topico:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 153, 47, 0.2);
+}
+
+.topico h3 {
+  color: #ff992f;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.topico ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.topico li {
+  margin: 8px 0;
+}
+
+.topico a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.topico a:hover {
+  color: #ff6600;
+}
+
+/* Footer */
+footer {
+  background-color: #eeeeee;
+  color: #555;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+
+/* Tema Escuro Automático */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0e0e0e;
+    color: #f0f0f0;
+  }
+
+  header {
+    background: radial-gradient(circle at top, #1a1a1a, #0e0e0e);
+    color: #ff992f;
+    border-bottom: 1px solid #ff992f33;
+    box-shadow: 0 0 10px rgba(255, 153, 47, 0.1);
+  }
+
+  header p {
+    color: #ccc;
+  }
+
+  form input {
+    background-color: #222;
+    color: white;
+    border: 1px solid #444;
+  }
+
+  form button {
+    background-color: #ff992f;
+    color: black;
+  }
+
+  .indice h2 {
+    color: #ffffff;
+  }
+
+  .indice p {
+    color: #cccccc;
+  }
+
+  .topico {
+    background-color: rgba(255, 153, 47, 0.03);
+    border: 1px solid #ff992f22;
+  }
+
+  .topico h3 {
+    color: #ff992f;
+  }
+
+  .topico a {
+    color: #66b2ff;
+  }
+
+  .topico a:hover {
+    color: #ff992f;
+  }
+
+  footer {
+    background-color: #111;
+    color: #888;
+    border-top: 1px solid #ff992f22;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .topico {
+    flex: 1 1 100%;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input {
+    width: 100%;
+  }
+
+  form button {
+    width: 100%;
+  }
+}

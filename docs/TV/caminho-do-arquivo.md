@@ -4,7 +4,6 @@
 
 A opção **"Caminho Arquivo"** é usada quando a TV **não possui integração com nosso CRM** ou **não há integração com o sistema ERP do cliente**.  
 Nesses casos, os produtos são enviados para a TV por meio de um **arquivo gerado pela balança**.
-
 Esse campo deve ser utilizado como uma **solução alternativa**, permitindo que o sistema localize o arquivo de produtos no **caminho do servidor informado**.  
 A partir disso, nosso sistema realiza a **leitura do arquivo e exibe os produtos corretamente na TV**, mesmo sem uma integração direta.
 

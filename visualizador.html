@@ -222,6 +222,31 @@
         background-color: #ff992f;
       }
     }
+    #config-aparencia {
+      background-color: #f2f2f2;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      max-width: 200px;
+      margin-left: -10px;
+    }
+
+    #config-aparencia h3 {
+      color: #ff6600;
+      margin-top: 0;
+    }
+
+    #config-aparencia label {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    body.texto-pequeno { font-size: 13px; }
+    body.texto-padrao { font-size: 16px; }
+    body.texto-grande { font-size: 19px; }
+
+    body.largura-padrao main { max-width: 1024px; margin: auto; }
+    body.largura-largo main { max-width: 100%; }
   </style>
 </head>
 <body>
@@ -235,6 +260,21 @@
       <h3>Tópicos</h3>
       <ul id="toc"></ul>
     </nav>
+
+    <aside id="config-aparencia">
+      <h3>Aparência</h3>
+      <div class="grupo-opcao">
+        <strong>Texto</strong>
+        <label><input type="radio" name="tamanho-texto" value="pequeno" checked> Pequeno</label>
+        <label><input type="radio" name="tamanho-texto" value="padrao"> Padrão</label>
+        <label><input type="radio" name="tamanho-texto" value="grande"> Grande</label>
+      </div>
+      <div class="grupo-opcao" style="margin-top:15px;">
+        <strong>Largura</strong>
+        <label><input type="radio" name="largura" value="padrao"> Padrão</label>
+        <label><input type="radio" name="largura" value="largo" checked> Largo</label>
+      </div>
+    </aside>
 
     <section id="conteudo" class="indice">
       <p>Carregando conteúdo...</p>
@@ -307,21 +347,28 @@
           $conteudo.innerHTML = `<p style="color:red;">Erro: ${err.message}</p>`;
         });
 
-      // Botão "Voltar ao topo"
       const btnTopo = document.getElementById("voltar-topo");
-
       window.onscroll = function () {
-        if (document.documentElement.scrollTop > 300) {
-          btnTopo.style.display = "block";
-        } else {
-          btnTopo.style.display = "none";
-        }
+        btnTopo.style.display = document.documentElement.scrollTop > 300 ? "block" : "none";
       };
-
-      btnTopo.onclick = function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
+      btnTopo.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Menu de Aparência
+    const body = document.body;
+    document.querySelectorAll('input[name="tamanho-texto"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        body.classList.remove('texto-pequeno', 'texto-padrao', 'texto-grande');
+        body.classList.add(`texto-${radio.value}`);
+      });
+    });
+    document.querySelectorAll('input[name="largura"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        body.classList.remove('largura-padrao', 'largura-largo');
+        body.classList.add(`largura-${radio.value}`);
+      });
+    });
+    body.classList.add('texto-pequeno', 'largura-largo');
   </script>
 </body>
 </html>

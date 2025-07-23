@@ -8,7 +8,7 @@ Nesses casos, os produtos são enviados para a TV por meio de um **arquivo gerad
 Esse campo deve ser utilizado como uma **solução alternativa**, permitindo que o sistema localize o arquivo de produtos no **caminho do servidor informado**.  
 A partir disso, nosso sistema realiza a **leitura do arquivo e exibe os produtos corretamente na TV**, mesmo sem uma integração direta.
 
-![Imagem de exemplo](/docs/TV/imagem1.png)
+![Imagem de exemplo](docs/TV/imagem1.png)
 
 ## Relação de aparelhos
 

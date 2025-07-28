@@ -4,20 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documentação</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styless.css" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <header>
-    <h1>Documentação BIG2BE</h1>
+    <div class="titulo-logo">
+      <h1>Documentação</h1>
+      <img src="logo2.png" class="logo-claro" alt="Logo Claro" />
+      <img src="logo.png" class="logo-escuro" alt="Logo Escuro" />
+    </div>
     <p>Explore nossos guias completos sobre tecnologias e ferramentas.</p>
-    <form>
-      <input type="text" placeholder="Pesquisar documentação..." />
+
+    <form onsubmit="event.preventDefault();" class="form-pesquisa">
+      <div class="campo-com-sugestoes">
+        <input type="text" id="campo-pesquisa" placeholder="Pesquisar documentação..." autocomplete="off" aria-label="Campo de pesquisa de documentação" />
+        <div id="sugestoes" class="sugestoes" role="listbox" aria-label="Sugestões de pesquisa"></div>
+      </div>
       <button type="submit">Pesquisar</button>
     </form>
   </header>
@@ -28,70 +32,70 @@
       <p>Escolha uma categoria para começar:</p>
 
       <div class="topicos-grid">
-        <div class="topico">
+        <div class="topico" data-nome="Campanhas">
           <h3>Campanhas</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+      <li><a href="visualizador.html?doc=docs/campanha/campanharapida.md">Campanha Rápida</a></li>
+      <li><a href="visualizador.html?doc=docs/campanha/campanhaativa.md">Campanhas Ativas</a></li>
+
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="Aplicativo">
           <h3>Aplicativo</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Cadastro</a></li>
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="Comunicação">
           <h3>Comunicação</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+            <li><a href="#">Integrações</a></li>
+            <li><a href="#">Alertas</a></li>
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="CRM">
           <h3>CRM</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Segmentações</a></li>
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="Ecommerce">
           <h3>Ecommerce</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+            <li><a href="#">Pedidos</a></li>
+            <li><a href="#">Carrinho</a></li>
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="Metas">
           <h3>Metas</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+            <li><a href="#">Performance</a></li>
+            <li><a href="#">Resultados</a></li>
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="Trade">
           <h3>Trade</h3>
           <ul>
-            <li><a href="#">Subtópico 1</a></li>
-            <li><a href="#">Subtópico 2</a></li>
+            <li><a href="#">Campanhas Ativas</a></li>
+            <li><a href="#">Controle de Vendas</a></li>
           </ul>
         </div>
 
-        <div class="topico">
+        <div class="topico" data-nome="Tv">
           <h3>Tv</h3>
           <ul>
             <li><a href="visualizador.html?doc=docs/TV/caminho-do-arquivo.md">Caminho do Arquivo (TV)</a></li>
             <li><a href="#">Subtópico 2</a></li>
           </ul>
         </div>
-        
       </div>
     </section>
   </main>
@@ -99,5 +103,68 @@
   <footer>
     &copy; 2025 Documentação Big2Be™ — Todos os direitos reservados
   </footer>
+
+  <script>
+    const campoPesquisa = document.getElementById("campo-pesquisa");
+    const sugestoes = document.getElementById("sugestoes");
+    const topicos = document.querySelectorAll(".topico");
+
+    let indexSelecionado = -1;
+
+    campoPesquisa.addEventListener("input", () => {
+      const termo = campoPesquisa.value.toLowerCase();
+      sugestoes.innerHTML = "";
+      indexSelecionado = -1;
+
+      if (!termo) return;
+
+      topicos.forEach(topico => {
+        const links = topico.querySelectorAll("a");
+
+        links.forEach(link => {
+          const texto = link.textContent.toLowerCase();
+          if (texto.includes(termo)) {
+            const item = document.createElement("div");
+            item.textContent = link.textContent;
+            item.tabIndex = 0;
+            item.classList.add("sugestao-item");
+            item.setAttribute("role", "option");
+            item.onclick = () => window.location.href = link.href;
+            sugestoes.appendChild(item);
+          }
+        });
+      });
+    });
+
+    campoPesquisa.addEventListener("keydown", (e) => {
+      const itens = sugestoes.querySelectorAll(".sugestao-item");
+      if (!itens.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        indexSelecionado = (indexSelecionado + 1) % itens.length;
+        atualizarSelecao(itens);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        indexSelecionado = (indexSelecionado - 1 + itens.length) % itens.length;
+        atualizarSelecao(itens);
+      } else if (e.key === "Enter") {
+        if (indexSelecionado >= 0 && itens[indexSelecionado]) {
+          e.preventDefault();
+          itens[indexSelecionado].click();
+        }
+      }
+    });
+
+    function atualizarSelecao(itens) {
+      itens.forEach((el, i) => {
+        el.classList.toggle("ativo", i === indexSelecionado);
+      });
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!campoPesquisa.contains(e.target)) sugestoes.innerHTML = "";
+    });
+  </script>
 </body>
 </html>

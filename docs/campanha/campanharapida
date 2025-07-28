@@ -1,0 +1,52 @@
+# Campanha Rápida
+
+## Campanha Rápida
+A **Campanha Rápida** é a funcionalidade onde são criadas e lançadas ofertas promocionais para os usuários, permitindo a publicação instantânea de descontos e promoções de maneira rápida e eficiente.
+
+![Campanha Rápida](imagem1.png)
+
+## Título da Campanha
+O **Título da Campanha** é onde você pode definir o título conforme sua preferência, que será exibido aos usuários.
+
+Exemplo: "Quarta do Caderno", que pode ser uma campanha específica para oferecer descontos em cadernos às quartas-feiras.
+
+![Título da Campanha](imagem2.png)
+
+## Início e Fim da Campanha
+O **Início e Fim da Campanha** referem-se, respectivamente, à data de início e à data de término da ação promocional.
+
+Se a campanha estiver programada para o dia seguinte, não é necessário realizar a carga no PDV, pois o sistema fará isso automaticamente.
+
+No entanto, se a campanha for para o mesmo dia, é necessário realizar a carga (dependendo de como é feita sua integração) no PDV para que as promoções entrem em vigor corretamente.
+
+![Início e Fim da Campanha](imagem3.png)
+
+## Ofertas Segmentadas e Gerais
+As **Ofertas Segmentadas** têm como objetivo engajar clientes já cadastrados no clube, oferecendo vantagens exclusivas e personalizadas que incentivam o uso contínuo da plataforma.
+
+As **Ofertas Gerais** são voltadas para o público em geral e podem ser aplicadas tanto para usuários do clube quanto para consumidores que realizam compras em lojas físicas ou online.
+
+![Ofertas Segmentadas e Gerais](imagem4.png)
+
+## Clusters
+Os **Clusters** permitem segmentar o público de forma mais precisa, possibilitando que ofertas e promoções sejam direcionadas de maneira mais eficaz para grupos específicos de clientes.
+
+Por exemplo, é possível criar uma oferta exclusiva para um determinado grupo, garantindo que a campanha atinja exatamente o público desejado.
+
+![Clusters](imagem5.png)
+
+## Mídias
+As **Mídias** definem como e onde as promoções serão apresentadas ao público. Isso inclui canais como o aplicativo, jornal, cartaz, e-mail, ecommerce e WhatsApp.
+
+Cada uma dessas mídias possui características específicas que impactam diretamente no alcance e no formato da divulgação.
+
+É importante ressaltar que temos uma explicação detalhada para cada uma delas, e vamos apresentá-las separadamente para que você compreenda melhor o fluxo e a aplicação de cada canal.
+
+![Mídias](imagem6.png)
+
+## Campanha com Desconto Percentual
+A **Campanha com Desconto Percentual** permite criar campanhas com descontos percentuais personalizados para cada loja, utilizando as estratégias "Preço Clube" e "Preço De/Por".
+
+É importante destacar que, ao ativar essa opção, todos os produtos atualmente vinculados à campanha serão excluídos automaticamente.
+
+![Campanha com Desconto Percentual](imagem7.png)
